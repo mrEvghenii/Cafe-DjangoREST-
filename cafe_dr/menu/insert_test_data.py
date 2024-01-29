@@ -1,15 +1,10 @@
+from django.http import HttpResponse
+
 from menu.models import (
     MainMenuORM,
     SubmenuORM,
     DishRecipeORM,
 )
-
-
-# def prepare_database():
-#     BaseORM.metadata.drop_all(sync_engine)
-#     print("База данных очищена")
-#     BaseORM.metadata.create_all(sync_engine)
-#     print("Добавлены таблицы в базу данных")
 
 
 def insert_main_menu():
@@ -42,8 +37,8 @@ def insert_dish_recipes():
     a14 = DishRecipeORM.objects.create(submenu_item_id=5, dish="Лимонад")
 
 
-# prepare_database()
-insert_main_menu()
-insert_submenu()
-insert_dish_recipes()
-print("Добавлены данные в таблицы")
+def insert_test_data():
+    insert_main_menu()
+    insert_submenu()
+    insert_dish_recipes()
+    print("Добавлены тестовые данные в таблицы")

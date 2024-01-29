@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from ninja import Router
 
 from menu.models import MainMenuORM, SubmenuORM, DishRecipeORM
@@ -14,6 +15,8 @@ from menu.schemas import (
 )
 
 from menu import crud
+from menu import insert_test_data as itd
+
 
 router = Router()
 
@@ -24,6 +27,13 @@ DR = ["Dishes and Recipes"]
 MM_path = "/main_menu"
 SM_path = "/submenu"
 DR_path = "/dish_recipe"
+
+
+#  --- Insert tst data ---
+@router.get("itd/", tags=["Insert test data"])
+def insert_test_data(request):
+    itd.insert_test_data()
+    return HttpResponse("Test data added", status=201)
 
 
 # --- Main Menu ---
