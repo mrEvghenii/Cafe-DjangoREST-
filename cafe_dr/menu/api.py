@@ -30,7 +30,7 @@ DR_path = "/dish_recipe"
 
 
 #  --- Insert tst data ---
-@router.get("itd/", tags=["Insert test data"])
+@router.get("/itd", tags=["Insert test data"])
 def insert_test_data(request):
     itd.insert_test_data()
     return HttpResponse("Test data added", status=201)
