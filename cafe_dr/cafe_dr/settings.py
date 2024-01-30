@@ -79,8 +79,8 @@ WSGI_APPLICATION = "cafe_dr.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-conf = dotenv_values(".env-dev")
-# conf = dotenv_values(".env-docker")
+# conf = dotenv_values(".env-dev")
+conf = dotenv_values(".env-docker")
 
 DATABASES = {
     "default": {
