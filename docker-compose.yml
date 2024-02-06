@@ -3,7 +3,7 @@ version: "3.8"
 services:
   db:
     image: postgres:15-alpine
-    container_name: db_app
+    container_name: db
     restart: always
     command: -p 5433
     expose:
@@ -16,9 +16,8 @@ services:
       context: .
     env_file:
       - cafe_dr/.env-docker
-    container_name: cafe_app
+    container_name: app
     restart: always
-    command: ["/Cafe_app/docker/app.sh"]
     ports:
       - "8000:8080"
     depends_on:
